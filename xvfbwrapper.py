@@ -71,6 +71,7 @@ class Xvfb(object):
         # give Xvfb time to start
         time.sleep(self.__class__.SLEEP_TIME_BEFORE_START)
         ret_code = self.proc.poll()
+        os.environ["DISPLAY"] = display_var
         if ret_code is None:
             self._set_display_var(self.new_display)
         else:
